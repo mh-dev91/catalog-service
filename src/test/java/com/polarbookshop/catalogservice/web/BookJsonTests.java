@@ -23,23 +23,23 @@ class BookJsonTests {
         var book = new Book(394L, "1234567890", "Title", "Author", 9.90, "Polarsophia", now, now, 21);
         var jsonContent = json.write(book);
         assertThat(jsonContent).extractingJsonPathNumberValue("@.id")
-                .isEqualTo(book.getId().intValue());
+                .isEqualTo(book.id().intValue());
         assertThat(jsonContent).extractingJsonPathStringValue("@.isbn")
-                .isEqualTo(book.getIsbn());
+                .isEqualTo(book.isbn());
         assertThat(jsonContent).extractingJsonPathStringValue("@.title")
-                .isEqualTo(book.getTitle());
+                .isEqualTo(book.title());
         assertThat(jsonContent).extractingJsonPathStringValue("@.author")
-                .isEqualTo(book.getAuthor());
+                .isEqualTo(book.author());
         assertThat(jsonContent).extractingJsonPathNumberValue("@.price")
-                .isEqualTo(book.getPrice());
+                .isEqualTo(book.price());
         assertThat(jsonContent).extractingJsonPathStringValue("@.publisher")
-                .isEqualTo(book.getPublisher());
+                .isEqualTo(book.publisher());
         assertThat(jsonContent).extractingJsonPathStringValue("@.createdDate")
-                .isEqualTo(book.getCreatedDate().toString());
+                .isEqualTo(book.createdDate().toString());
         assertThat(jsonContent).extractingJsonPathStringValue("@.lastModifiedDate")
-                .isEqualTo(book.getLastModifiedDate().toString());
+                .isEqualTo(book.lastModifiedDate().toString());
         assertThat(jsonContent).extractingJsonPathNumberValue("@.version")
-                .isEqualTo(book.getVersion());
+                .isEqualTo(book.version());
     }
 
     @Test
